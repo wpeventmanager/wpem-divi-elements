@@ -1,0 +1,216 @@
+# Copyright (C) 2021 WPEM Team
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Event Manager Divi Elements 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-event-manager-"
+"divi-elements\n"
+"POT-Creation-Date: 2021-04-08 14:18:10+00:00\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
+
+#: includes/modules/EventListing/EventListing.php:15
+msgid "Event Listing"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:21
+msgid "Event View Type"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:25
+msgid "Select view type"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:26
+msgid "Box"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:27
+msgid "List"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:31
+msgid "Choose which type of event view you would like to display."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:37
+msgid "Events per page"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:40
+msgid "Define the number of events that should be displayed per page."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:47
+msgid "Show Pagination"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:51
+#: includes/modules/EventListing/EventListing.php:96
+msgid "Yes"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:52
+#: includes/modules/EventListing/EventListing.php:97
+msgid "No"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:55
+msgid "Turn pagination on and off."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:62
+msgid "Orderby"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:66
+msgid "Sort Event Start Date"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:67
+msgid "ID"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:68
+msgid "Title"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:69
+msgid "Name"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:70
+msgid "Modified"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:71
+msgid "Parent"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:72
+msgid "Random"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:75
+#: includes/modules/EventListing/EventListing.php:88
+msgid "Choose how your events should be ordered."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:79
+msgid "Order"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:83
+msgid "Ascending"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:84
+msgid "Descending"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:92
+msgid "Show Filters"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:100
+msgid "Show filters on listing page or not."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:104
+msgid "Select Categories"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:114
+msgid "Choose which categories you would like to include."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:119
+msgid "Select Event Types"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:122
+msgid "All Event Types"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:129
+msgid "Choose which event type you would like to include."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:135
+msgid "Show Featured"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:139
+#: includes/modules/EventListing/EventListing.php:154
+msgid "All"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:140
+#: includes/modules/EventListing/EventListing.php:155
+msgid "True"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:141
+#: includes/modules/EventListing/EventListing.php:156
+msgid "False"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:145
+msgid "Choose how featured event will show."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:150
+msgid "Show Cancelled"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:160
+msgid "Choose how cancelled event will show."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:165
+msgid "Location"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:168
+msgid "Add any location value to the location filter."
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:172
+msgid "Keywords"
+msgstr ""
+
+#: includes/modules/EventListing/EventListing.php:175
+msgid "Add any keyword value to the keyword search filter."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Event Manager Divi Elements"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "www.wp-eventmanager.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "WP Event Manager Divi elements for divi builder"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WPEM Team"
+msgstr ""

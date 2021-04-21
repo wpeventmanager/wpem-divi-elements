@@ -1,8 +1,8 @@
 // External Dependencies
 import React, { Component } from "react";
 
-class EventListing extends Component {
-  static slug = "wpem_event_listing";
+class SubmitVenueForm extends Component {
+  static slug = "wpem_submit_venue_form";
 
   render() {
     const Content = this.props.content;
@@ -11,4 +11,4 @@ class EventListing extends Component {
   }
 }
 
-export default EventListing;
+export default SubmitVenueForm;

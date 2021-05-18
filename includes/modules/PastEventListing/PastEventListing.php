@@ -134,7 +134,6 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 		$location       		= $this->props['location'];
 		$event_types       		= $this->props['include_event_types'];
 		$categories       		= $this->props['include_categories'];
-		$show_filters       		= $this->props['show_filters'];
 		$order       		= $this->props['order'];
 		$show_pagination       		= $this->props['show_pagination'];
 
@@ -147,7 +146,6 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 			esc_attr( $location ),
 			esc_attr( $event_types ),
 			esc_attr( $categories ),
-			esc_attr( $show_filters ),
 			esc_attr( $order ),
 			esc_attr( $show_pagination ),
 		

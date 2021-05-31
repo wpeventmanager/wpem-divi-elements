@@ -23,12 +23,12 @@ class WPEM_Single_Organizer extends ET_Builder_Module {
             'suppress_filters' => 0,
         );
 
-        $rganizers = get_posts( $args );
+        $organizers = get_posts( $args );
 
         $options = [];
-        if ( !empty( $rganizers ) ) {
-            foreach ( $rganizers as $rganizer ) {
-                $options[$rganizer->ID] = $rganizer->post_title;
+        if ( !empty( $organizers ) ) {
+            foreach ( $organizers as $organizer ) {
+                $options[$organizer->ID] = $organizer->post_title;
             }
         } else {
             $options[] = __( 'Not Found Organizer', 'wp-event-manager' );
@@ -61,7 +61,7 @@ class WPEM_Single_Organizer extends ET_Builder_Module {
             '<div>
 				%1$s
 			</div>',
-            $organizer_id
+            $output_event
         );
 
         return $output;

@@ -129,7 +129,7 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 
 		$post_id            = isset( $current_page['id'] ) ? (int) $current_page['id'] : 0;
 		$posts_number       = $this->props['per_page'];
-        $orderby       		= $this->props['orderby'];
+                $orderby       		= $this->props['orderby'];
 		$keywords       		= $this->props['keywords'];
 		$location       		= $this->props['location'];
 		$event_types       		= $this->props['include_event_types'];
@@ -139,7 +139,15 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 
 
 		$shortcode = sprintf(
-			'[past_events  per_page="%1$s" orderby="%2$s" keywords="%3$s" location="%4$s" event_types="%5$s" categories="%6$s" show_filter="%7$s" order="%8$s" show_pagination="%9$s"]',
+			'[past_events  '
+                        . 'per_page="%1$s" '
+                        . 'orderby="%2$s" '
+                        . 'keywords="%3$s" '
+                        . 'location="%4$s" '
+                        . 'event_types="%5$s" '
+                        . 'categories="%6$s" '
+                        . 'order="%7$s" '
+                        . 'show_pagination="%8$s"]',
 			esc_attr( $posts_number ),
 			esc_attr( $orderby ),
 			esc_attr( $keywords ),
@@ -165,7 +173,6 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 
 
 	public function render( $attrs, $content = null, $render_slug ) {
-		$type                    = $this->props['layout'];
 		$include_categories      = $this->props['include_categories'];
 		$posts_number            = $this->props['per_page'];
 		$orderby                 = $this->props['orderby'];

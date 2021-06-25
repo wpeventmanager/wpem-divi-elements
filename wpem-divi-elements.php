@@ -32,6 +32,7 @@ if ( ! defined( 'ABSPATH' ) )
 
 if ( ! class_exists( 'WPEM_Updater' ) ) {
     include( 'autoupdater/wpem-updater.php' );
+    }
 
 include_once(ABSPATH.'wp-admin/includes/plugin.php');
 function pre_check_before_installing_divi_elements() 
@@ -53,6 +54,7 @@ if (! in_array( 'wp-event-manager/wp-event-manager.php', apply_filters( 'active_
 
 }
 add_action( 'admin_notices', 'pre_check_before_installing_divi_elements' );  
+
 
 /**
  * WP_Event_Manager_Divi_Elements class.

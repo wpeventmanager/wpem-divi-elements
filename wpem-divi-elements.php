@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: WP Event Manager Divi Elements
+Plugin Name: WP Event Manager - Divi Elements
 Plugin URI:  www.wp-eventmanager.com
 Description: WP Event Manager Divi elements for divi builder
 Version:     1.0.0
@@ -8,7 +8,7 @@ Author:      WPEM Team
 Author URI:  www.wp-eventmanager.com
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: wpem-wp-event-manager-divi-elements
+Text Domain: wpem-divi-elements
 Domain Path: /languages
 
 WP Event Manager Divi Elements is free software: you can redistribute it and/or modify
@@ -26,16 +26,71 @@ along with WP Event Manager Divi Elements. If not, see https://www.gnu.org/licen
 */
 
 
-if ( ! function_exists( 'wpem_initialize_extension' ) ):
-/**
- * Creates the extension's main class instance.
- *
- * @since 1.0.0
- */
-function wpem_initialize_extension() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/WpEventManagerDiviElements.php';
+
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) )
+    exit;
+
+if ( ! class_exists( 'WPEM_Updater' ) ) {
+    include( 'autoupdater/wpem-updater.php' );
+
+function pre_check_before_installing_divi_elements() 
+{
+/*
+* Check weather WP Event Manager is installed or not. If WP Event Manger is not installed or active then it will give notification to admin panel
+*/
+if (! in_array( 'wp-event-manager/wp-event-manager.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) 
+{
+        global $pagenow;
+        if( $pagenow == 'plugins.php' )
+        {
+           echo '<div id="error" class="error notice is-dismissible"><p>';
+           echo __( 'WP Event Manager is require to use WP Event Manager - Divi Elements' , 'wpem-divi-elements');
+           echo '</p></div>';   
+        }
+        return true;
 }
-add_action( 'divi_extensions_init', 'wpem_initialize_extension' );
-endif;
 
+}
+add_action( 'admin_notices', 'pre_check_before_installing_divi_elements' );  
 
+/**
+ * WP_Event_Manager_Divi_Elements class.
+ */
+class WPEM_Divi_Elements extends WPEM_Updater {
+    
+    /**
+     * Constructor
+     */
+    public function __construct() 
+    {
+        // Define constants
+        define( 'WPEM_DIVI_ELEMENTS_VERSION', '1.0.0' );
+        define( 'WPEM_DIVI_ELEMENTS_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+        define( 'WPEM_DIVI_ELEMENTS_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
+
+        add_action( 'divi_extensions_init', array($this,'wpem_initialize_extension') );
+
+    }
+
+    /**
+     * Creates the extension's main class instance.
+     *
+     * @since 1.0.0
+     */
+    public function wpem_initialize_extension() {
+        require_once plugin_dir_path( __FILE__ ) . 'includes/WpEventManagerDiviElements.php';
+    }
+
+    /**
+     * Localisation
+     */
+    public function load_plugin_textdomain() {
+        $domain = 'wpem-divi-elements';       
+        $locale = apply_filters('plugin_locale', get_locale(), $domain);
+        load_textdomain( $domain, WP_LANG_DIR . "/wpem-divi-elements/".$domain."-" .$locale. ".mo" );
+        load_plugin_textdomain($domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+    }
+}
+
+$GLOBALS['wpem_divi_elements'] = new WPEM_Divi_Elements();

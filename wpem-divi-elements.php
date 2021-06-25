@@ -1,5 +1,5 @@
 <?php
-/*
+/**
 Plugin Name: WP Event Manager - Divi Elements
 Plugin URI:  www.wp-eventmanager.com
 Description: WP Event Manager Divi elements for divi builder
@@ -34,6 +34,7 @@ if ( ! defined( 'ABSPATH' ) )
 if ( ! class_exists( 'WPEM_Updater' ) ) {
     include( 'autoupdater/wpem-updater.php' );
 
+include_once(ABSPATH.'wp-admin/includes/plugin.php');
 function pre_check_before_installing_divi_elements() 
 {
 /*
@@ -58,6 +59,31 @@ add_action( 'admin_notices', 'pre_check_before_installing_divi_elements' );
  * WP_Event_Manager_Divi_Elements class.
  */
 class WPEM_Divi_Elements extends WPEM_Updater {
+
+    /**
+     * The single instance of the class.
+     *
+     * @var self
+     * @since  1.0.0
+     */
+    private static $_instance = null;
+
+    /**
+     * Main WP Event Manager Instance.
+     *
+     * Ensures only one instance of WP Event Manager is loaded or can be loaded.
+     *
+     * @since  1.0.0
+     * @static
+     * @see WP_Event_Manager()
+     * @return self Main instance.
+     */
+    public static function instance() {
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
     
     /**
      * Constructor
@@ -93,4 +119,15 @@ class WPEM_Divi_Elements extends WPEM_Updater {
     }
 }
 
-$GLOBALS['wpem_divi_elements'] = new WPEM_Divi_Elements();
+/**
+ * Main instance of WP Event Manager Speaker & Schedule.
+ *
+ * Returns the main instance of WP Event Manager to prevent the need to use globals.
+ *
+ * @since  1.0.0
+ * @return WPEM_Divi_Elements
+ */
+function wpem_divi_elements() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName
+    return WPEM_Divi_Elements::instance();
+}
+$GLOBALS['wpem_divi_elements'] =  wpem_divi_elements();

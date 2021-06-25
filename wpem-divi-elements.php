@@ -1,5 +1,5 @@
 <?php
-/**
+/*
 Plugin Name: WP Event Manager - Divi Elements
 Plugin URI:  www.wp-eventmanager.com
 Description: WP Event Manager Divi elements for divi builder
@@ -23,9 +23,8 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with WP Event Manager Divi Elements. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
+
 */
-
-
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) )
@@ -49,7 +48,7 @@ if (! in_array( 'wp-event-manager/wp-event-manager.php', apply_filters( 'active_
            echo __( 'WP Event Manager is require to use WP Event Manager - Divi Elements' , 'wpem-divi-elements');
            echo '</p></div>';   
         }
-        return true;
+        //return true;
 }
 
 }

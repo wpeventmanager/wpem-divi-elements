@@ -30,10 +30,6 @@ along with WP Event Manager Divi Elements. If not, see https://www.gnu.org/licen
 if ( ! defined( 'ABSPATH' ) )
     exit;
 
-if ( ! class_exists( 'WPEM_Updater' ) ) {
-    include( 'autoupdater/wpem-updater.php' );
-    }
-
 include_once(ABSPATH.'wp-admin/includes/plugin.php');
 function pre_check_before_installing_divi_elements() 
 {
@@ -59,7 +55,7 @@ add_action( 'admin_notices', 'pre_check_before_installing_divi_elements' );
 /**
  * WP_Event_Manager_Divi_Elements class.
  */
-class WPEM_Divi_Elements extends WPEM_Updater {
+class WPEM_Divi_Elements {
 
     /**
      * The single instance of the class.

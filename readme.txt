@@ -2,7 +2,8 @@
 
 Contributors: wpeventmanager,ashokdudhat,hiteshmakvana
 Requires at least: 4.1
-Tested up to: 5.7
+Tested up to: 5.7.2
+
 Stable tag: 1.0.0
 Copyright: 2021 WP Event Manager
 License: GNU General Public License v3.0
@@ -27,7 +28,7 @@ To install this plugin, please refer to the guide here: [http://codex.wordpress.
 == Changelog ==
 
 
-= 1.0 =
+= 1.0.0 [30th June 2021 ] =
 
 * First release.
 

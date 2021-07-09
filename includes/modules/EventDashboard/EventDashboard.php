@@ -3,7 +3,7 @@
 class WPEM_Event_Dashboard extends ET_Builder_Module {
 
 	public $slug       = 'wpem_event_dashboard';
-	public $vb_support = 'on';
+	public $vb_support = 'off';
 
 	protected $module_credits = array(
 		'module_uri' => 'www.wp-eventmanager.com',

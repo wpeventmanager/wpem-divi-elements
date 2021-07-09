@@ -3,7 +3,7 @@
 class WPEM_Submit_Venue_Form extends ET_Builder_Module {
 
     public $slug       = 'wpem_submit_venue_form';
-    public $vb_support = 'on';
+    public $vb_support = 'off';
 
     protected $module_credits = array(
         'module_uri' => 'www.wp-eventmanager.com',

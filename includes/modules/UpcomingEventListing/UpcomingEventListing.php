@@ -3,7 +3,7 @@
 class WPEM_Upcoming_Event_Listing extends ET_Builder_Module {
 
     public $slug       = 'wpem_upcoming_event_listing';
-    public $vb_support = 'on';
+    public $vb_support = 'off';
 
     protected $module_credits = array(
         'module_uri' => 'www.wp-eventmanager.com',

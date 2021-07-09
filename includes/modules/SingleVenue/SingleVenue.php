@@ -3,7 +3,7 @@
 class WPEM_Single_Venue extends ET_Builder_Module {
 
     public $slug       = 'wpem_single_venue';
-    public $vb_support = 'on';
+    public $vb_support = 'off';
 
     protected $module_credits = array(
         'module_uri' => 'www.wp-eventmanager.com',

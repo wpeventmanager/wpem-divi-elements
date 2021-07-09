@@ -3,7 +3,7 @@
 class WPEM_Submit_Organizer_Form extends ET_Builder_Module {
 
     public $slug       = 'wpem_submit_organizer_form';
-    public $vb_support = 'on';
+    public $vb_support = 'off';
 
     protected $module_credits = array(
         'module_uri' => 'www.wp-eventmanager.com',

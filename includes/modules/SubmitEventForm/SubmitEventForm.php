@@ -19,7 +19,8 @@ class WPEM_Submit_Event_Form extends ET_Builder_Module {
         return array();
     }
 
-    public function render( $attrs, $content = null, $render_slug ) {
+    public function render( $attrs, $content, $render_slug ) {
+
 
         $output_event = do_shortcode( '[submit_event_form]' );
 

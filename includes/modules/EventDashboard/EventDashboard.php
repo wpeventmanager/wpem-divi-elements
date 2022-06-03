@@ -30,8 +30,8 @@ class WPEM_Event_Dashboard extends ET_Builder_Module {
 			),
 		);
 	}
+	public function render( $attrs, $content, $render_slug ) {
 
-	public function render( $attrs, $content = null, $render_slug ) {
 		$posts_number            = $this->props['per_page'];
 		$shortcode = sprintf(
 			'[event_dashboard per_page="%1$s"]',

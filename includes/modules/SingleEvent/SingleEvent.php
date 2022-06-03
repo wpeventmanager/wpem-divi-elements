@@ -49,7 +49,8 @@ class WPEM_Single_Event extends ET_Builder_Module {
 		);
 	}
 
-	public function render( $attrs, $content = null, $render_slug ) {
+	public function render( $attrs, $content, $render_slug ) {
+
 		$event_id = $this->props['event_id'];
 		$shortcode = sprintf(
 			'[event id="%1$s"]',

@@ -232,8 +232,8 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 		return $output_events;
 	}
 
+	public function render( $attrs, $content, $render_slug ) {
 
-	public function render( $attrs, $content = null, $render_slug ) {
 		$type                    = $this->props['layout'];
 		$include_categories      = $this->props['include_categories'];
 		$posts_number            = $this->props['per_page'];

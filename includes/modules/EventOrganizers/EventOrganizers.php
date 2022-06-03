@@ -72,7 +72,7 @@ class WPEM_Event_Organizers extends ET_Builder_Module {
 		);
 	}
 
-	public function render( $attrs, $content = null, $render_slug ) {
+	public function render( $attrs, $content, $render_slug ) {
 
 		$order = $this->props['order'];
 		$orderby = $this->props['orderby'];

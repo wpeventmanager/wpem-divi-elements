@@ -118,7 +118,8 @@ class WPEM_Upcoming_Event_Listing extends ET_Builder_Module {
         );
     }
 
-    public function render( $attrs, $content = null, $render_slug ) {
+    public function render( $attrs, $content, $render_slug ) {
+
 
         $orderby       		 = $this->props['orderby'];
         $keywords       		 = $this->props['keywords'];

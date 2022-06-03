@@ -46,7 +46,8 @@ class WPEM_Single_Organizer extends ET_Builder_Module {
         );
     }
 
-    public function render( $attrs, $content = null, $render_slug ) {
+    public function render( $attrs, $content, $render_slug ) {
+
 
         $organizer_id = $this->props['organizer_id'];
 

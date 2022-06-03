@@ -172,7 +172,7 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 	}
 
 
-	public function render( $attrs, $content = null, $render_slug ) {
+	public function render( $attrs, $content, $render_slug ) {
 		$include_categories      = $this->props['include_categories'];
 		$posts_number            = $this->props['per_page'];
 		$orderby                 = $this->props['orderby'];

@@ -31,7 +31,8 @@ class WPEM_Organizer_Dashboard extends ET_Builder_Module {
 		);
 	}
 
-	public function render( $attrs, $content = null, $render_slug ) {
+	public function render( $attrs, $content, $render_slug ) {
+
 
 		$posts_number = $this->props['per_page'];
 		

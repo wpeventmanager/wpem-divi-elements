@@ -163,7 +163,6 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 		return $output_events;
 	}
 	public function render( $attrs, $content, $render_slug ) {
-		
 		$posts_number            = $this->props['per_page'];
 		$pagination              = $this->props['show_pagination'];
 		$order       		= $this->props['order'];

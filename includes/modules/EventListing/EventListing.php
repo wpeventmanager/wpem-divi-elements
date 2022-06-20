@@ -238,6 +238,7 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 		$include_categories      = $this->props['include_categories'];
 		$posts_number            = $this->props['per_page'];
 		$orderby                 = $this->props['orderby'];
+		$order       		= $this->props['order'];
 		$pagination              = $this->props['show_pagination'];
 
 

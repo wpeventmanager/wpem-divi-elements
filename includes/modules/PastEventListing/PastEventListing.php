@@ -3,7 +3,7 @@
 class WPEM_Past_Event_Listing extends ET_Builder_Module {
 	
 	public $slug       = 'wpem_past_event_listing';
-	public $vb_support = 'off';
+	public $vb_support = 'on';
 
 	protected $module_credits = array(
 		'module_uri' => 'www.wp-eventmanager.com',

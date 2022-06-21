@@ -139,7 +139,7 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 
 
 		$shortcode = sprintf(
-			'[events  per_page="%1$s" order="%2$s" orderby="%3$s"]',
+			'[events  per_page="%1$s" order="%2$s" orderby="%3$s" categories="%4$s" event_types="%5$s"]',
 			esc_attr( $posts_number ),
 			esc_attr( $order ),
 			esc_attr( $orderby ),

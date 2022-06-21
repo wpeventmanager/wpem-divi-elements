@@ -57,7 +57,6 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 				'toggle_slug'      => 'main_content',
 				//'hover'            => 'tabs',
 			),
-			
 			'orderby'             => array(
 				'label'            => esc_html__( 'Orderby', 'wp-event-manager-divi-elements' ),
 				'type'             => 'select',
@@ -181,16 +180,13 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 
 		return $fields;
 	}
-
-	function get_events( $args = array(), $conditional_tags = array(), $current_page = array() ) {
-		foreach ( $args as $arg => $value ) {
-			$this->props[ $arg ] = $value;
-		}
-
+	
+	public function render( $attrs, $content, $render_slug ) {
 		$post_id            = isset( $current_page['id'] ) ? (int) $current_page['id'] : 0;
 		$layout             = $this->props['layout'];
 		$posts_number       = $this->props['per_page'];
-        $orderby       		= $this->props['orderby'];
+		$order = $this->props['order'];
+		$orderby = $this->props['orderby'];
 		$keywords       		= $this->props['keywords'];
 		$location       		= $this->props['location'];
 		$cancelled       		= $this->props['cancelled'];
@@ -198,16 +194,14 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 		$event_types       		= $this->props['include_event_types'];
 		$categories       		= $this->props['include_categories'];
 		$show_filters       		= $this->props['show_filters'];
-		$order       		= $this->props['order'];
 		$show_pagination       		= $this->props['show_pagination'];
-
-
 		$shortcode = sprintf(
-			'[events  per_page="%1$s" orderby="%2$s" layout_type="%3$s" keywords="%4$s" location="%5$s" cancelled="%6$s" featured="%7$s" event_types="%8$s" categories="%9$s" show_filter="%10$s" order="%11$s" show_pagination="%12$s"]',
+		
+			'[events per_page="%1$s" layout_type="%2$s" order="%3$s" orderby="%4$s" keywords="%5$s" location="%6$s" cancelled="%7$s" featured="%8$s" event_types="%9$s" categories="%10$s" show_filter="%11$s" show_pagination="%12$s"]',
+			esc_attr( $layout ),
 			esc_attr( $posts_number ),
+			esc_attr( $order ),
 			esc_attr( $orderby ),
-            esc_attr( $layout ),
-			esc_attr( $keywords ),
 			esc_attr( $keywords ),
 			esc_attr( $location ),
 			esc_attr( $cancelled ),
@@ -215,42 +209,18 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 			esc_attr( $event_types ),
 			esc_attr( $categories ),
 			esc_attr( $show_filters ),
-			esc_attr( $order ),
 			esc_attr( $show_pagination ),
-		
 		);
-		wp_enqueue_script( 'chosen');
-		wp_enqueue_script( 'wp-event-manager-content-event-listing');
-		wp_enqueue_script( 'wp-event-manager-ajax-filters');
-
-		do_action( 'et_pb_event_before_print_event_listing' );
-
-		$output_events = do_shortcode( $shortcode );
-
-		do_action( 'et_pb_event_after_print_event_listing' );
-
-		return $output_events;
-	}
-
-	public function render( $attrs, $content, $render_slug ) {
-
-		$type                    = $this->props['layout'];
-		$include_categories      = $this->props['include_categories'];
-		$posts_number            = $this->props['per_page'];
-		$orderby                 = $this->props['orderby'];
-		$order       		= $this->props['order'];
-		$pagination              = $this->props['show_pagination'];
-
-
 		
-
+		$output_events = do_shortcode( $shortcode );
+		
 		$output = sprintf(
 			'<div>
 				%1$s
 			</div>',
-			$this->get_events( array(), array(), array( 'id' => $this->get_the_ID() ) )
+			$output_events
 		);
-
+		
 		return $output;
 	}
 }

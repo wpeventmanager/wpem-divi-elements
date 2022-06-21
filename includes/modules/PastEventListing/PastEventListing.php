@@ -122,11 +122,7 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 		return $fields;
 	}
 	
-	function past_event_listing( $args = array(), $conditional_tags = array(), $current_page = array() ) {
-		foreach ( $args as $arg => $value ) {
-			$this->props[ $arg ] = $value;
-		}
-
+	public function render( $attrs, $content, $render_slug ) {
 		$post_id            = isset( $current_page['id'] ) ? (int) $current_page['id'] : 0;
 		$posts_number       = $this->props['per_page'];
 		$order       		= $this->props['order'];
@@ -136,47 +132,33 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 		$categories       		= $this->props['include_categories'];
 		$event_types       		= $this->props['include_event_types'];
 		$show_pagination       		= $this->props['show_pagination'];
-
-
+		
 		$shortcode = sprintf(
-			'[events  per_page="%1$s"]',
+		
+			'[events per_page="%1$s" event_types="%9$s" categories="%10$s" show_pagination="%12$s"]',
+			esc_attr( $layout ),
 			esc_attr( $posts_number ),
 			esc_attr( $order ),
 			esc_attr( $orderby ),
-			esc_attr( $location ),
 			esc_attr( $keywords ),
-			esc_attr( $categories ),
+			esc_attr( $location ),
+			esc_attr( $cancelled ),
+			esc_attr( $featured ),
 			esc_attr( $event_types ),
+			esc_attr( $categories ),
+			esc_attr( $show_filters ),
 			esc_attr( $show_pagination ),
-		
 		);
-		wp_enqueue_script( 'chosen');
-		wp_enqueue_script( 'wp-event-manager-content-event-listing');
-		wp_enqueue_script( 'wp-event-manager-ajax-filters');
-
-		do_action( 'et_pb_event_before_print_event_listing' );
-
+		
 		$output_events = do_shortcode( $shortcode );
-
-		do_action( 'et_pb_event_after_print_event_listing' );
-
-		return $output_events;
-	}
-	public function render( $attrs, $content, $render_slug ) {
-		$posts_number            = $this->props['per_page'];
-		$pagination              = $this->props['show_pagination'];
-		$order       		= $this->props['order'];
-		$orderby       		= $this->props['orderby'];
-		$location       		= $this->props['location'];
-		$keywords       		= $this->props['keywords'];
-		$categories       		= $this->props['include_categories'];
-		$event_types       		= $this->props['include_event_types'];
+		
 		$output = sprintf(
 			'<div>
 				%1$s
 			</div>',
-			$this->past_event_listing( array(), array(), array( 'id' => $this->get_the_ID() ) )
+			$output_events
 		);
+		
 		return $output;
 	}
 }

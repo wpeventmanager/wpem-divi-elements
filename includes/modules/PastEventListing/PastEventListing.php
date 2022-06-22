@@ -122,42 +122,38 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 		return $fields;
 	}
 	
-	function past_event_listing( $args = array(), $conditional_tags = array(), $current_page = array() ) {
+	function get_events( $args = array(), $conditional_tags = array(), $current_page = array() ) {
 		foreach ( $args as $arg => $value ) {
 			$this->props[ $arg ] = $value;
 		}
 
 		$post_id            = isset( $current_page['id'] ) ? (int) $current_page['id'] : 0;
 		$posts_number       = $this->props['per_page'];
-		$event_types       		= $this->props['include_event_types'];
-		$categories       		= $this->props['include_categories'];
         $orderby       		= $this->props['orderby'];
 		$keywords       		= $this->props['keywords'];
 		$location       		= $this->props['location'];
-		$cancelled       		= $this->props['cancelled'];
-		$featured       		= $this->props['featured'];
 		$event_types       		= $this->props['include_event_types'];
 		$categories       		= $this->props['include_categories'];
-		$show_filters       		= $this->props['show_filters'];
 		$order       		= $this->props['order'];
 		$show_pagination       		= $this->props['show_pagination'];
 
 
 		$shortcode = sprintf(
-			'[events  per_page="%1$s" event_types="%2$s" categories="%3$s"]',
+			'[past_events  '
+                        . 'per_page="%1$s" '
+                        . 'orderby="%2$s" '
+                        . 'keywords="%3$s" '
+                        . 'location="%4$s" '
+                        . 'event_types="%5$s" '
+                        . 'categories="%6$s" '
+                        . 'order="%7$s" '
+                        . 'show_pagination="%8$s"]',
 			esc_attr( $posts_number ),
-			esc_attr( $event_types ),
-			esc_attr( $categories ),
 			esc_attr( $orderby ),
-            esc_attr( $layout ),
-			esc_attr( $keywords ),
 			esc_attr( $keywords ),
 			esc_attr( $location ),
-			esc_attr( $cancelled ),
-			esc_attr( $featured ),
 			esc_attr( $event_types ),
 			esc_attr( $categories ),
-			esc_attr( $show_filters ),
 			esc_attr( $order ),
 			esc_attr( $show_pagination ),
 		
@@ -174,21 +170,22 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 
 		return $output_events;
 	}
-	public function render( $attrs, $content, $render_slug ) {
 
-		/*$posts_number            = $this->props['per_page'];
-		$shortcode = sprintf(
-			'[event_dashboard per_page="%1$s"]',
-			esc_attr( $posts_number ),
-		);
-		$output_events = do_shortcode( $shortcode );*/
+
+	public function render( $attrs, $content, $render_slug ) {
+		$include_categories      = $this->props['include_categories'];
 		$posts_number            = $this->props['per_page'];
+		$order       		= $this->props['order'];
+		$orderby                 = $this->props['orderby'];
+		$pagination              = $this->props['show_pagination'];
+		
 		$output = sprintf(
 			'<div>
 				%1$s
 			</div>',
-			$this->past_event_listing( array(), array(), array( 'id' => $this->get_the_ID() ) )
+			$this->get_events( array(), array(), array( 'id' => $this->get_the_ID() ) )
 		);
+
 		return $output;
 	}
 }

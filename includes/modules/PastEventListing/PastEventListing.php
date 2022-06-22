@@ -130,16 +130,16 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 		$post_id            = isset( $current_page['id'] ) ? (int) $current_page['id'] : 0;
 		$posts_number       = $this->props['per_page'];
         $orderby       		= $this->props['orderby'];
-		$keywords       		= $this->props['keywords'];
-		$location       		= $this->props['location'];
-		$event_types       		= $this->props['include_event_types'];
-		$categories       		= $this->props['include_categories'];
+		//$keywords       		= $this->props['keywords'];
+		//$location       		= $this->props['location'];
+		//$event_types       		= $this->props['include_event_types'];
+		//$categories       		= $this->props['include_categories'];
 		$order       		= $this->props['order'];
-		$show_pagination       		= $this->props['show_pagination'];
+		//$show_pagination       		= $this->props['show_pagination'];
 
 
 		$shortcode = sprintf(
-			'[past_events  '
+			/*'[past_events  '
                         . 'per_page="%1$s" '
                         . 'orderby="%2$s" '
                         . 'keywords="%3$s" '
@@ -147,15 +147,16 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
                         . 'event_types="%5$s" '
                         . 'categories="%6$s" '
                         . 'order="%7$s" '
-                        . 'show_pagination="%8$s"]',
+                        . 'show_pagination="%8$s"]',*/
+			'[past_events  per_page="%1$s" order="%2$s ="%3$s]',
 			esc_attr( $posts_number ),
 			esc_attr( $orderby ),
-			esc_attr( $keywords ),
-			esc_attr( $location ),
-			esc_attr( $event_types ),
-			esc_attr( $categories ),
+			//esc_attr( $keywords ),
+			//esc_attr( $location ),
+			//esc_attr( $event_types ),
+			//esc_attr( $categories ),
 			esc_attr( $order ),
-			esc_attr( $show_pagination ),
+			//esc_attr( $show_pagination ),
 		
 		);
 		wp_enqueue_script( 'chosen');
@@ -173,11 +174,11 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 
 
 	public function render( $attrs, $content, $render_slug ) {
-		$include_categories      = $this->props['include_categories'];
+		//$include_categories      = $this->props['include_categories'];
 		$posts_number            = $this->props['per_page'];
 		$order       		= $this->props['order'];
 		$orderby                 = $this->props['orderby'];
-		$pagination              = $this->props['show_pagination'];
+		//$pagination              = $this->props['show_pagination'];
 		
 		$output = sprintf(
 			'<div>

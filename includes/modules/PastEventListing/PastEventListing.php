@@ -144,8 +144,8 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
                         . 'orderby="%2$s" '
                         . 'keywords="%3$s" '
                         . 'location="%4$s" '
-						. 'categories="%6$s" '
-                        . 'event_types="%5$s" '
+						. 'categories="%5$s" '
+                        . 'event_types="%6$s" '
                         . 'order="%7$s"]',
 			//'[past_events  per_page="%1$s" orderby="%2$s" order="%3$s keywords="%4$s" location="%5$s" categories="%6$s" event_types="%7$s"]',
 			esc_attr( $posts_number ),

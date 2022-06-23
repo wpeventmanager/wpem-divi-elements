@@ -132,29 +132,28 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
         $orderby       		= $this->props['orderby'];
 		$keywords       		= $this->props['keywords'];
 		$location       		= $this->props['location'];
-		$event_types       		= $this->props['include_event_types'];
 		$categories       		= $this->props['include_categories'];
+		$event_types       		= $this->props['include_event_types'];
 		$order       		= $this->props['order'];
 		//$show_pagination       		= $this->props['show_pagination'];
 
 
 		$shortcode = sprintf(
-			/*'[past_events  '
+			'[past_events  '
                         . 'per_page="%1$s" '
                         . 'orderby="%2$s" '
                         . 'keywords="%3$s" '
                         . 'location="%4$s" '
+						. 'categories="%6$s" '
                         . 'event_types="%5$s" '
-                        . 'categories="%6$s" '
-                        . 'order="%7$s" '
-                        . 'show_pagination="%8$s"]',*/
-			'[past_events  per_page="%1$s" orderby="%2$s" order="%3$s keywords="%4$s" location="%5$s" event_types="%6$s" categories="%7$s"]',
+                        . 'order="%7$s"]',
+			//'[past_events  per_page="%1$s" orderby="%2$s" order="%3$s keywords="%4$s" location="%5$s" categories="%6$s" event_types="%7$s"]',
 			esc_attr( $posts_number ),
 			esc_attr( $orderby ),
 			esc_attr( $keywords ),
 			esc_attr( $location ),
-			esc_attr( $event_types ),
 			esc_attr( $categories ),
+			esc_attr( $event_types ),
 			esc_attr( $order ),
 			//esc_attr( $show_pagination ),
 		
@@ -174,7 +173,8 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 
 
 	public function render( $attrs, $content, $render_slug ) {
-		$include_categories      = $this->props['include_categories'];
+		$categories       		= $this->props['include_categories'];
+		$event_types       		= $this->props['include_event_types'];
 		$posts_number            = $this->props['per_page'];
 		$order       		= $this->props['order'];
 		$orderby                 = $this->props['orderby'];

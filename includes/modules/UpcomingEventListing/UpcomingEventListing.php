@@ -118,9 +118,10 @@ class WPEM_Upcoming_Event_Listing extends ET_Builder_Module {
         );
     }
 
-    public function render( $attrs, $content, $render_slug ) {
-
-
+    function get_events( $args = array(), $conditional_tags = array(), $current_page = array() ) {
+		foreach ( $args as $arg => $value ) {
+			$this->props[ $arg ] = $value;
+		}
         $orderby       		 = $this->props['orderby'];
         $keywords       		 = $this->props['keywords'];
         $location       		 = $this->props['location'];
@@ -130,29 +131,53 @@ class WPEM_Upcoming_Event_Listing extends ET_Builder_Module {
         $show_pagination       		 = $this->props['show_pagination'];
         $posts_number       = $this->props['per_page'];
 
-        $shortcode = sprintf(
-            '[upcoming_events show_pagination="%1$s" per_page="%2$s" order="%3$s" meta_key="%4$s" location="%5$s" keywords="%6$s" selected_categories="%7$s" selected_event_types="%8$s"]',
+		
+		$shortcode = sprintf(
+			'[upcoming_events  show_pagination="%1$s per_page="%2$s" orderby="%3$s" order="%4$s" keywords="%5$s" location="%6$s"keywords="%7$s" categories="%8$s" event_types="%9$s"]',
+			
             esc_attr( $show_pagination ),
             esc_attr( $posts_number ),
-            esc_attr( $order ),
             esc_attr( $orderby ),
-            esc_attr( $location ),
+			esc_attr( $order ),
+			esc_attr( $keywords ),
+			esc_attr( $location ),
             esc_attr( $keywords ),
             esc_attr( $categories ),
-            esc_attr( $event_types ),
-        );
+			esc_attr( $event_types ),
+		);
+		wp_enqueue_script( 'chosen');
+		wp_enqueue_script( 'wp-event-manager-content-event-listing');
+		wp_enqueue_script( 'wp-event-manager-ajax-filters');
 
-        $output_event = do_shortcode( $shortcode );
+		do_action( 'et_pb_event_before_print_event_listing' );
 
-        $output = sprintf(
-            '<div>
+		$output_events = do_shortcode( $shortcode );
+
+		do_action( 'et_pb_event_after_print_event_listing' );
+
+		return $output_events;
+	}
+
+    public function render( $attrs, $content, $render_slug ) {
+		
+        $orderby       		 = $this->props['orderby'];
+        $keywords       		 = $this->props['keywords'];
+        $location       		 = $this->props['location'];
+        $event_types       		 = $this->props['include_event_types'];
+        $categories       		 = $this->props['include_categories'];
+        $order       		 = $this->props['order'];
+        $show_pagination       		 = $this->props['show_pagination'];
+        $posts_number       = $this->props['per_page'];
+
+		$output = sprintf(
+			'<div>
 				%1$s
 			</div>',
-            $output_event
-        );
+			$this->get_events( array(), array(), array( 'id' => $this->get_the_ID() ) )
+		);
 
-        return $output;
-    }
+		return $output;
+	}
 }
 
 new WPEM_Upcoming_Event_Listing;

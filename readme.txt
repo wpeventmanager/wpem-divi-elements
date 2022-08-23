@@ -2,7 +2,7 @@
 
 Contributors: wpeventmanager,ashokdudhat,hiteshmakvana
 Requires at least: 4.1
-Tested up to: 5.7.2
+Tested up to: 6.0
 
 Stable tag: 1.0.1
 Copyright: 2021 WP Event Manager

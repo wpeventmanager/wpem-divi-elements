@@ -1,6 +1,6 @@
 === WPEM - Divi Elements ===
 
-Contributors: wpeventmanager,ashokdudhat,hiteshmakvana
+Contributors: wpeventmanager,ashokdudhat,krinaydhanani
 Requires at least: 4.1
 Tested up to: 6.0
 

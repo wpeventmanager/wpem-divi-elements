@@ -88,7 +88,7 @@ class WPEM_Divi_Elements {
     public function __construct() 
     {
         // Define constants
-        define( 'WPEM_DIVI_ELEMENTS_VERSION', '1.0.0' );
+        define( 'WPEM_DIVI_ELEMENTS_VERSION', '1.0.1' );
         define( 'WPEM_DIVI_ELEMENTS_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
         define( 'WPEM_DIVI_ELEMENTS_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 

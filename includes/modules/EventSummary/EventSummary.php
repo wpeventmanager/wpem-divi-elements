@@ -3,7 +3,7 @@
 class WPEM_Event_Summary extends ET_Builder_Module {
 
     public $slug       = 'wpem_single_event_summary';
-    public $vb_support = 'on';
+    public $vb_support = 'off';
 
     protected $module_credits = array(
         'module_uri' => 'www.wp-eventmanager.com',
@@ -84,7 +84,7 @@ class WPEM_Event_Summary extends ET_Builder_Module {
         );
     }
 
-    public function render( $attrs, $content = null, $render_slug ) {
+    public function render( $attrs, $content, $render_slug ) {
 
         $event_id = $this->props['event_id'];
         $width = $this->props['width'];

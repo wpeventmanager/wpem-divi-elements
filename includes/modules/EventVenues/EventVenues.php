@@ -71,8 +71,8 @@ class WPEM_Event_Venues extends ET_Builder_Module {
 			),
 		);
 	}
+	public function render( $attrs, $content, $render_slug ) {
 
-	public function render( $attrs, $content = null, $render_slug ) {
 		$order = $this->props['order'];
 		$orderby = $this->props['orderby'];
 		$show_thumb = $this->props['show_thumb'];

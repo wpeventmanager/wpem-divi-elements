@@ -3,7 +3,7 @@
 class WPEM_Organizer_Dashboard extends ET_Builder_Module {
 
 	public $slug       = 'wpem_organizer_dashboard';
-	public $vb_support = 'on';
+	public $vb_support = 'partial';
 
 	protected $module_credits = array(
 		'module_uri' => 'www.wp-eventmanager.com',
@@ -31,7 +31,8 @@ class WPEM_Organizer_Dashboard extends ET_Builder_Module {
 		);
 	}
 
-	public function render( $attrs, $content = null, $render_slug ) {
+	public function render( $attrs, $content, $render_slug ) {
+
 
 		$posts_number = $this->props['per_page'];
 		

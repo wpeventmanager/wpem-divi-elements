@@ -3,7 +3,7 @@
 class WPEM_Single_Organizer extends ET_Builder_Module {
 
     public $slug       = 'wpem_single_organizer';
-    public $vb_support = 'on';
+    public $vb_support = 'off';
 
     protected $module_credits = array(
         'module_uri' => 'www.wp-eventmanager.com',
@@ -46,7 +46,8 @@ class WPEM_Single_Organizer extends ET_Builder_Module {
         );
     }
 
-    public function render( $attrs, $content = null, $render_slug ) {
+    public function render( $attrs, $content, $render_slug ) {
+
 
         $organizer_id = $this->props['organizer_id'];
 

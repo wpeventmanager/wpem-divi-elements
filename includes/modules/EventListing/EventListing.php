@@ -100,7 +100,7 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 				'description'      => esc_html__( 'Show filters on listing page or not.', 'wp-event-manager-divi-elements' ),
 				'toggle_slug'      => 'main_content',
 			),
-			'include_categories'  => array(
+			'categories'  => array(
 				'label'            => esc_html__( 'Select Categories', 'wp-event-manager-divi-elements' ),
 				'type'             => 'categories',
 				// 'meta_categories'  => array(
@@ -115,7 +115,7 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 				'taxonomy_name'    => 'event_listing_category',
 				'toggle_slug'      => 'main_content',
 			),
-			'include_event_types'  => array(
+			'event_types'  => array(
 				'label'            => esc_html__( 'Select Event Types', 'wp-event-manager-divi-elements' ),
 				'type'             => 'categories',
 				'meta_categories'  => array(
@@ -191,32 +191,36 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 		$layout             = $this->props['layout'];
 		$posts_number       = $this->props['per_page'];
         $orderby       		= $this->props['orderby'];
+		$order       		= $this->props['order'];
 		$keywords       		= $this->props['keywords'];
 		$location       		= $this->props['location'];
 		$cancelled       		= $this->props['cancelled'];
 		$featured       		= $this->props['featured'];
-		$event_types       		= $this->props['include_event_types'];
-		$categories       		= $this->props['include_categories'];
+		$categories       		= $this->props['categories'];
+		$event_types       		= $this->props['event_types'];
+		//$categories       		= $this->props['categories'];
 		$show_filters       		= $this->props['show_filters'];
-		$order       		= $this->props['order'];
-		$show_pagination       		= $this->props['show_pagination'];
+		
+		//$show_pagination       		= $this->props['show_pagination'];
 
 
 		$shortcode = sprintf(
-			'[events  per_page="%1$s" orderby="%2$s" layout_type="%3$s" keywords="%4$s" location="%5$s" cancelled="%6$s" featured="%7$s" event_types="%8$s" categories="%9$s" show_filter="%10$s" order="%11$s" show_pagination="%12$s"]',
+			'[events  per_page="%1$s" orderby="%2$s" order="%3$s" layout_type="%4$s" keywords="%5$s" location="%6$s" cancelled="%7$s" featured="%8$s" categories="%9$s" event_types="%10$s" show_filter="%11$s"]',
 			esc_attr( $posts_number ),
 			esc_attr( $orderby ),
+			esc_attr( $order ),
             esc_attr( $layout ),
-			esc_attr( $keywords ),
+			//esc_attr( $keywords ),
 			esc_attr( $keywords ),
 			esc_attr( $location ),
 			esc_attr( $cancelled ),
 			esc_attr( $featured ),
-			esc_attr( $event_types ),
 			esc_attr( $categories ),
+			esc_attr( $event_types ),
+			//esc_attr( $categories ),
 			esc_attr( $show_filters ),
-			esc_attr( $order ),
-			esc_attr( $show_pagination ),
+			
+			//esc_attr( $show_pagination ),
 		
 		);
 		wp_enqueue_script( 'chosen');
@@ -232,13 +236,21 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 		return $output_events;
 	}
 
+	public function render( $attrs, $content, $render_slug ) {
 
-	public function render( $attrs, $content = null, $render_slug ) {
-		$type                    = $this->props['layout'];
-		$include_categories      = $this->props['include_categories'];
+		$layout             = $this->props['layout'];
+		//$categories       		= $this->props['categories'];
+		//$event_types       		= $this->props['event_types'];
 		$posts_number            = $this->props['per_page'];
 		$orderby                 = $this->props['orderby'];
-		$pagination              = $this->props['show_pagination'];
+		$order       		= $this->props['order'];
+		$keywords       		= $this->props['keywords'];
+		$location       		= $this->props['location'];
+		$cancelled       		= $this->props['cancelled'];
+		$featured       		= $this->props['featured'];
+		$categories       		= $this->props['categories'];
+		$event_types       		= $this->props['event_types'];
+		//$pagination              = $this->props['show_pagination'];
 
 
 		

@@ -3,7 +3,7 @@
 class WPEM_Past_Event_Listing extends ET_Builder_Module {
 	
 	public $slug       = 'wpem_past_event_listing';
-	public $vb_support = 'off';
+	public $vb_support = 'on';
 
 	protected $module_credits = array(
 		'module_uri' => 'www.wp-eventmanager.com',
@@ -86,7 +86,7 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 				'description' => esc_html__('Add any keyword value to the keyword search filter.', 'simp-simple-extension'),
 				'toggle_slug' => 'main_content',
 			),
-			'include_categories'  => array(
+			'categories'  => array(
 				'label'            => esc_html__( 'Select Categories', 'wp-event-manager-divi-elements' ),
 				'type'             => 'categories',
 				// 'meta_categories'  => array(
@@ -101,7 +101,7 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 				'taxonomy_name'    => 'event_listing_category',
 				'toggle_slug'      => 'main_content',
 			),
-			'include_event_types'  => array(
+			'event_types'  => array(
 				'label'            => esc_html__( 'Select Event Types', 'wp-event-manager-divi-elements' ),
 				'type'             => 'categories',
 				'meta_categories'  => array(
@@ -121,7 +121,7 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 
 		return $fields;
 	}
-
+	
 	function get_events( $args = array(), $conditional_tags = array(), $current_page = array() ) {
 		foreach ( $args as $arg => $value ) {
 			$this->props[ $arg ] = $value;
@@ -129,33 +129,31 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 
 		$post_id            = isset( $current_page['id'] ) ? (int) $current_page['id'] : 0;
 		$posts_number       = $this->props['per_page'];
-                $orderby       		= $this->props['orderby'];
-		$keywords       		= $this->props['keywords'];
-		$location       		= $this->props['location'];
-		$event_types       		= $this->props['include_event_types'];
-		$categories       		= $this->props['include_categories'];
 		$order       		= $this->props['order'];
-		$show_pagination       		= $this->props['show_pagination'];
-
+        $orderby       		= $this->props['orderby'];
+		$location       		= $this->props['location'];
+		$keywords       		= $this->props['keywords'];
+		$categories       		= $this->props['categories'];
+		$event_types       		= $this->props['event_types'];
 
 		$shortcode = sprintf(
-			'[past_events  '
+			/*'[past_events  '
                         . 'per_page="%1$s" '
-                        . 'orderby="%2$s" '
-                        . 'keywords="%3$s" '
-                        . 'location="%4$s" '
-                        . 'event_types="%5$s" '
-                        . 'categories="%6$s" '
-                        . 'order="%7$s" '
-                        . 'show_pagination="%8$s"]',
+						. 'order="%2$s" '
+                        . 'orderby="%3$s" '
+						. 'location="%4$s" '
+                        . 'keywords="%5$s" '
+						. 'categories="%6$s" '
+                        . 'event_types="%7$s"]',*/
+			'[past_events  per_page="%1$s" order="%2$s" orderby="%3$s" location="%4$s" keywords="%5$s" categories="%6$s" event_types="%7$s"]',
 			esc_attr( $posts_number ),
-			esc_attr( $orderby ),
-			esc_attr( $keywords ),
-			esc_attr( $location ),
-			esc_attr( $event_types ),
-			esc_attr( $categories ),
 			esc_attr( $order ),
-			esc_attr( $show_pagination ),
+			esc_attr( $orderby ),
+			esc_attr( $location ),
+			esc_attr( $keywords ),
+			esc_attr( $categories ),
+			esc_attr( $event_types ),
+			//esc_attr( $show_pagination ),
 		
 		);
 		wp_enqueue_script( 'chosen');
@@ -172,11 +170,15 @@ class WPEM_Past_Event_Listing extends ET_Builder_Module {
 	}
 
 
-	public function render( $attrs, $content = null, $render_slug ) {
-		$include_categories      = $this->props['include_categories'];
+	public function render( $attrs, $content, $render_slug ) {
 		$posts_number            = $this->props['per_page'];
+		$order       		= $this->props['order'];
 		$orderby                 = $this->props['orderby'];
-		$pagination              = $this->props['show_pagination'];
+		$location       		= $this->props['location'];
+		$keywords       		= $this->props['keywords'];
+		$categories       		= $this->props['categories'];
+		$event_types       		= $this->props['event_types'];
+		//$pagination              = $this->props['show_pagination'];
 		
 		$output = sprintf(
 			'<div>

@@ -19,7 +19,7 @@ class WPEM_Venue_Dashboard extends ET_Builder_Module {
         return array(
             'per_page'        => array(
                 'default'          => '10',
-                'label'            => esc_html__( 'Posts per page', 'wp-event-manager-divi-elements' ),
+                'label'            => esc_html__( 'Venue per page', 'wp-event-manager-divi-elements' ),
                 'type'             => 'text',
                 'option_category'  => 'configuration',
                 'description'      => esc_html__( 'Define the number of events that should be displayed per page.', 'wp-event-manager-divi-elements' ),

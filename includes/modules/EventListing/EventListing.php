@@ -205,7 +205,7 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 
 
 		$shortcode = sprintf(
-			'[events  per_page="%1$s" orderby="%2$s" order="%3$s" layout_type="%4$s" keywords="%5$s" location="%6$s" cancelled="%7$s" featured="%8$s" categories="%9$s" event_types="%10$s" show_filter="%11$s"]',
+			'[events  per_page="%1$s" orderby="%2$s" order="%3$s" layout_type="%4$s" keywords="%5$s" location="%6$s" cancelled="%7$s" featured="%8$s" categories="%9$s" event_types="%10$s" show_filters="%11$s"]',
 			esc_attr( $posts_number ),
 			esc_attr( $orderby ),
 			esc_attr( $order ),

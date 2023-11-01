@@ -122,18 +122,20 @@ class WPEM_Upcoming_Event_Listing extends ET_Builder_Module {
 		foreach ( $args as $arg => $value ) {
 			$this->props[ $arg ] = $value;
 		}
-        $orderby       		 = $this->props['orderby'];
+        $orderby       		     = $this->props['orderby'];
         $keywords       		 = $this->props['keywords'];
         $location       		 = $this->props['location'];
-        $event_types       		 = $this->props['include_event_types'];
-        $categories       		 = $this->props['include_categories'];
-        $order       		 = $this->props['order'];
-        $show_pagination       		 = $this->props['show_pagination'];
-        $posts_number       = $this->props['per_page'];
+        $event_term              = get_term( $this->props['include_event_types'] );
+        $event_types             = isset($event_term->name) ? $event_term->name : '' ;
+        $categories_term         = get_term( $this->props['include_categories'] );
+        $categories              = isset($categories_term->name) ? $categories_term->name : '' ;
+        $order                   = $this->props['order'];
+        $show_pagination         = $this->props['show_pagination'];
+        $posts_number            = $this->props['per_page'];
 
 		
 		$shortcode = sprintf(
-			'[upcoming_events  show_pagination="%1$s per_page="%2$s" orderby="%3$s" order="%4$s" keywords="%5$s" location="%6$s"keywords="%7$s" categories="%8$s" event_types="%9$s"]',
+			'[upcoming_events  show_pagination="%1$s per_page="%2$s" orderby="%3$s" order="%4$s" keywords="%5$s" location="%6$s" keywords="%7$s" selected_categories="%8$s" selected_event_types="%9$s"]',
 			
             esc_attr( $show_pagination ),
             esc_attr( $posts_number ),
@@ -160,14 +162,18 @@ class WPEM_Upcoming_Event_Listing extends ET_Builder_Module {
 
     public function render( $attrs, $content, $render_slug ) {
 		
-        $orderby       		 = $this->props['orderby'];
-        $keywords       		 = $this->props['keywords'];
-        $location       		 = $this->props['location'];
-        $event_types       		 = $this->props['include_event_types'];
-        $categories       		 = $this->props['include_categories'];
-        $order       		 = $this->props['order'];
-        $show_pagination       		 = $this->props['show_pagination'];
-        $posts_number       = $this->props['per_page'];
+       $orderby                  = $this->props['orderby'];
+        $keywords                = $this->props['keywords'];
+        $location                = $this->props['location'];
+        $event_term              = get_term( $this->props['include_event_types'] );
+        $event_types             = isset($event_term->name) ? $event_term->name : '' ;
+       // $event_types               = $this->props['include_event_types'];
+        $categories_term         = get_term( $this->props['include_categories'] );
+        $categories              = isset($categories_term->name) ? $categories_term->name : '' ;
+        //$categories                = $this->props['include_categories'];
+        $order                   = $this->props['order'];
+        $show_pagination         = $this->props['show_pagination'];
+        $posts_number            = $this->props['per_page'];
 
 		$output = sprintf(
 			'<div>

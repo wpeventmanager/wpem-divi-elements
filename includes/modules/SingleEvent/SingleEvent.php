@@ -42,7 +42,7 @@ class WPEM_Single_Event extends ET_Builder_Module {
 				'type'             => 'select',
 				'option_category'  => 'basic_option',
 				'options'          => $options,
-				'default_on_front' => '',
+				'default_on_front' => array_key_last($options),
 				'description'      => esc_html__( 'Choose which type of event view you would like to display.', 'wp-event-manager-divi-elements' ),
 				'toggle_slug'      => 'main_content',
 			),

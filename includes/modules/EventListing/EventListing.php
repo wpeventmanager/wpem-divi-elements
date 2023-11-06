@@ -48,8 +48,8 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 				'type'             => 'yes_no_button',
 				'option_category'  => 'configuration',
 				'options'          => array(
-					'true'  => esc_html__( 'Yes', 'wp-event-manager-divi-elements' ),
-					'false' => esc_html__( 'No', 'wp-event-manager-divi-elements' ),
+					'on'  => esc_html__( 'Yes', 'wp-event-manager-divi-elements' ),
+					'off' => esc_html__( 'No', 'wp-event-manager-divi-elements' ),
 				),
 				'default'          => 'false',
 				'description'      => esc_html__( 'Turn pagination on and off.', 'wp-event-manager-divi-elements' ),
@@ -201,11 +201,16 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 		//$categories       		= $this->props['categories'];
 		$show_filters       		= $this->props['show_filters'];
 		
-		//$show_pagination       		= $this->props['show_pagination'];
+		$show_pagination       		= $this->props['show_pagination'];
+		if($show_pagination == 'on'){
+			$show_pagination = 'true';
+		}elseif($show_pagination == 'off'){
+			$show_pagination = 'false';
+		}
 
 
 		$shortcode = sprintf(
-			'[events  per_page="%1$s" orderby="%2$s" order="%3$s" layout_type="%4$s" keywords="%5$s" location="%6$s" cancelled="%7$s" featured="%8$s" categories="%9$s" event_types="%10$s" show_filters="%11$s"]',
+			'[events  per_page="%1$s" orderby="%2$s" order="%3$s" layout_type="%4$s" keywords="%5$s" location="%6$s" cancelled="%7$s" featured="%8$s" categories="%9$s" event_types="%10$s" show_filters="%11$s" show_pagination="%12$s"]',
 			esc_attr( $posts_number ),
 			esc_attr( $orderby ),
 			esc_attr( $order ),
@@ -218,9 +223,8 @@ class WPEM_Event_Listing extends ET_Builder_Module {
 			esc_attr( $categories ),
 			esc_attr( $event_types ),
 			//esc_attr( $categories ),
-			esc_attr( $show_filters ),
-			
-			//esc_attr( $show_pagination ),
+			esc_attr( $show_filters ),			
+			esc_attr( $show_pagination ),
 		
 		);
 		wp_enqueue_script( 'chosen');

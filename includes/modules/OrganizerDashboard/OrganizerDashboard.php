@@ -37,7 +37,7 @@ class WPEM_Organizer_Dashboard extends ET_Builder_Module {
 		$posts_number = $this->props['per_page'];
 		
 		$shortcode = sprintf(
-			'[organizer_dashboard per_page="%1$s"]',
+			'[organizer_dashboard posts_per_page="%1$s"]',
 			esc_attr( $posts_number ),
 		);
 		

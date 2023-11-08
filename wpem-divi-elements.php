@@ -94,6 +94,12 @@ class WPEM_Divi_Elements {
 
         add_action( 'divi_extensions_init', array($this,'wpem_initialize_extension') );
 
+         //single page template override
+        $theme = wp_get_theme();
+        if($theme->name == 'Divi'){
+            add_filter( 'template_include', array($this,'wpem_divi_custom_template') );           
+        }
+
     }
 
     /**
@@ -113,6 +119,16 @@ class WPEM_Divi_Elements {
         $locale = apply_filters('plugin_locale', get_locale(), $domain);
         load_textdomain( $domain, WP_LANG_DIR . "/wpem-divi-elements/".$domain."-" .$locale. ".mo" );
         load_plugin_textdomain($domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+    }
+
+    /*Custom template for single page*/
+    public function wpem_divi_custom_template( $template )
+    {
+        $path = plugin_dir_path( __FILE__ );
+        if( is_single() ){
+            $template = $path.'templates/wpem-divi-single-event.php';
+        }        
+        return $template;
     }
 }
 

@@ -19,7 +19,7 @@ class WPEM_Organizer_Dashboard extends ET_Builder_Module {
 		return array(
 			'per_page'        => array(
 				'default'          => '10',
-				'label'            => esc_html__( 'Events per page', 'wp-event-manager-divi-elements' ),
+				'label'            => esc_html__( 'Organizers per page', 'wp-event-manager-divi-elements' ),
 				'type'             => 'text',
 				'option_category'  => 'configuration',
 				'description'      => esc_html__( 'Define the number of events that should be displayed per page.', 'wp-event-manager-divi-elements' ),

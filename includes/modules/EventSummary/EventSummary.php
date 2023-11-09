@@ -6,7 +6,7 @@ class WPEM_Event_Summary extends ET_Builder_Module {
     public $vb_support = 'off';
 
     protected $module_credits = array(
-        'module_uri' => 'https://https://www.wp-eventmanager.com',
+        'module_uri' => 'https://www.wp-eventmanager.com',
         'author'     => 'Wpem Team',
         'author_uri' => 'https://www.wp-eventmanager.com',
     );

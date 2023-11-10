@@ -103,9 +103,9 @@ class WPEM_Upcoming_Event_Listing extends ET_Builder_Module {
             'include_event_types'  => array(
                 'label'            => esc_html__( 'Select Event Types', 'wp-event-manager-divi-elements' ),
                 'type'             => 'categories',
-                'meta_categories'  => array(
+               /* 'meta_categories'  => array(
                     'all'     => esc_html__( 'All Event Types', 'wp-event-manager-divi-elements' ),
-                ),
+                ),*/
                 'renderer_options' => array(
                     'use_terms' => true,
                     'term_name' => 'event_listing_type',
@@ -125,10 +125,41 @@ class WPEM_Upcoming_Event_Listing extends ET_Builder_Module {
         $orderby       		     = $this->props['orderby'];
         $keywords       		 = $this->props['keywords'];
         $location       		 = $this->props['location'];
-        $event_term              = get_term( $this->props['include_event_types'] );
-        $event_types             = isset($event_term->name) ? $event_term->name : '' ;
-        $categories_term         = get_term( $this->props['include_categories'] );
-        $categories              = isset($categories_term->name) ? $categories_term->name : '' ;
+        $event_term              =  $this->props['include_event_types'] ;
+        $event_types_array = [];
+        $event_type_name = [];
+        $array_event_term = explode(',', $event_term);
+
+        if(!empty($array_event_term[0])){
+            foreach ($array_event_term as $key => $term) {
+                $event_types_array[] = get_term( $term);
+            }
+
+            foreach ($event_types_array as $value) {
+                    $event_type_name[] = $value->name;               
+            }                
+        }
+
+        $event_types = implode(',', $event_type_name);        
+
+        $categories_term         = $this->props['include_categories'];
+
+        $categories_array = [];
+        $categories_name = [];
+        $categories_term = explode(',', $categories_term);
+
+        if(!empty($categories_term[0])){
+            foreach ($categories_term as $key => $term) {
+                $categories_array[] = get_term( $term);
+            }
+
+            foreach ($categories_array as $value) {
+                    $categories_name[] = $value->name;               
+            }                
+        }
+
+        $categories = implode(',', $categories_name);
+        
         $order                   = $this->props['order'];
         $show_pagination         = $this->props['show_pagination'];
         $posts_number            = $this->props['per_page'];

@@ -4,7 +4,7 @@ Contributors: wpeventmanager,ashokdudhat,krinaydhanani
 Requires at least: 4.1
 Tested up to: 6.0
 
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Copyright: 2021 WP Event Manager
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -42,6 +42,25 @@ If you need help with customisation you will need to find and hire a developer o
 To install this plugin, please refer to the guide here: [http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation)
 
 == Changelog ==
+
+= 1.0.2 [20th Nov 2023 ] =
+
+Fixed : Pagination option is not visible on the page.
+Fixed : Past events display issue is fixed.
+Fixed : Upcoming events are not displayed with a filter option.
+Fixed : Show filter as select No option then the filter is displayed.
+Fixed : In the event details, the page 2 banner is displayed.
+Fixed : Single event summary page banner display issue is fixed.
+Fixed : Pagination option is not working with past events.
+Fixed : Single event and Single Organizer in the the view page are displayed blank.
+Fixed : Text link is not proper overall in all elements.
+Fixed : Event listing filter option is not working.
+Fixed : Organizer dashboard the field in the text section is not proper.
+Fixed : Single Event page default event is not displaying.
+Fixed : Single Event Summary page default event is not displaying.
+Fixed : Single organizer and venue default selected is not working.
+Fixed : Upcoming event listing few filters option are not working.
+Fixed : Venue Dashboard element title should be proper.
 
 
 = 1.0.1 [23th Aug 2022 ] =

@@ -3,7 +3,7 @@
 Plugin Name: WP Event Manager - Divi Elements
 Plugin URI:  www.wp-eventmanager.com
 Description: Divi element provides an easy interface that smoothly combines with the Divi theme builder to offer you a toolset to add various elements without shortcodes.
-Version:     1.0.1
+Version:     1.0.2
 Author:      WPEM Team
 Author URI:  www.wp-eventmanager.com
 License:     GPL2
@@ -88,7 +88,7 @@ class WPEM_Divi_Elements {
     public function __construct() 
     {
         // Define constants
-        define( 'WPEM_DIVI_ELEMENTS_VERSION', '1.0.1' );
+        define( 'WPEM_DIVI_ELEMENTS_VERSION', '1.0.2' );
         define( 'WPEM_DIVI_ELEMENTS_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
         define( 'WPEM_DIVI_ELEMENTS_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 
